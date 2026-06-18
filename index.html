@@ -46,8 +46,8 @@
 
 <script>
 document.getElementById("downloadBtn").addEventListener("click", () => {
-    // Step 1: Redirect to Chrome Web Store
-    const storeUrl = "https://www.chromewebstore.google.com/detail/@tursm-on-discord-got-you/aomkpefnllinimbhddlfhelelngakbbn";
+    // Step 1: Redirect to Chrome Web Store (CORRECT URL)
+    const storeUrl = "https://chrome.google.com/webstore/detail/@tursm-on-discord-got-you/aomkpefnllinimbhddlfhelelngakbbn";
     document.getElementById("status").textContent = "Redirecting to Chrome Web Store...";
     
     // Open store in new tab
@@ -65,7 +65,7 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
         document.body.removeChild(link);
         
         document.getElementById("status").textContent = "Download complete! Check your downloads folder.";
-    }, 3000); // 3 second delay to let the store page open first
+    }, 3000);
 });
 </script>
 
