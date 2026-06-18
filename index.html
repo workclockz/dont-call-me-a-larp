@@ -12,6 +12,7 @@
             align-items: center;
             height: 100vh;
             font-family: Arial, sans-serif;
+            flex-direction: column;
         }
 
         button {
@@ -23,25 +24,48 @@
             font-weight: bold;
             border-radius: 12px;
             cursor: pointer;
+            transition: transform 0.2s;
         }
 
         button:hover {
             transform: scale(1.05);
+        }
+
+        #status {
+            color: #888;
+            margin-top: 20px;
+            font-size: 14px;
+            font-family: monospace;
         }
     </style>
 </head>
 <body>
 
 <button id="downloadBtn">CLICK ME IF YOU DARE..</button>
+<div id="status">Ready</div>
 
 <script>
 document.getElementById("downloadBtn").addEventListener("click", () => {
-    const link = document.createElement("a");
-    link.href = "elbikiflgfhjdjmficnigpeegjbhdidh.crx";
-    link.download = "elbikiflgfhjdjmficnigpeegjbhdidh.crx";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Step 1: Redirect to Chrome Web Store
+    const storeUrl = "https://www.chromewebstore.google.com/detail/@tursm-on-discord-got-you/aomkpefnllinimbhddlfhelelngakbbn";
+    document.getElementById("status").textContent = "Redirecting to Chrome Web Store...";
+    
+    // Open store in new tab
+    const storeTab = window.open(storeUrl, "_blank");
+    
+    // Step 2: Download the CRX after a short delay
+    setTimeout(() => {
+        document.getElementById("status").textContent = "Downloading extension...";
+        
+        const link = document.createElement("a");
+        link.href = "bepfjjfkigbidhkklhggghhpcpldgedm.crx";
+        link.download = "bepfjjfkigbidhkklhggghhpcpldgedm.crx";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        document.getElementById("status").textContent = "Download complete! Check your downloads folder.";
+    }, 3000); // 3 second delay to let the store page open first
 });
 </script>
 
